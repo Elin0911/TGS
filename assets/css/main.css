@@ -2730,3 +2730,53 @@ body::-webkit-scrollbar {
 	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.overview{
+    background-color: #ed844d;
+}
+
+
+.overview .title p{
+    text-align: center;
+    /* padding: 0 18% 30px; */
+    padding: 0 18%;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width:820px){
+    .overview .title p{
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .overview .title p{
+        padding: 0px;
+        text-align: left;
+    }
+}
+
+.overview .title h2{
+    margin-bottom: 30px;
+}
+
+.overview .title .arrow .arrow::after, .overview .title .arrow::after {
+    border-color: #41b9af
+}
+
+.overview .title .arrow .arrow.is-triangle::after, .overview .title .arrow.is-triangle::after {
+    border-color: transparent;
+    border-bottom-color: #41b9af
+}
+
+.overview .title .arrow .arrow::before, .overview .title .arrow::before {
+    background-color: #41b9af
+}
+
+.overview .title h2:before {
+    background: #41b9af
+}
+
+.overview .title h2:after {
+    display: none
+}
+
