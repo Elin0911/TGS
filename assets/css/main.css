@@ -2730,11 +2730,6 @@ body::-webkit-scrollbar {
 	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.overview{
-    background-color: #ed844d;
-}
-
-
 .overview .title p{
     text-align: center;
     /* padding: 0 18% 30px; */
