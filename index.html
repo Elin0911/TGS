@@ -703,10 +703,11 @@
                     }
                 }
             ]
+        }).on('init', function(event, slick) {
+            // Slick 輪播初始化完成後顯示輪播容器
+            $('.carousel-wrapper').fadeIn(500); // 使用淡入效果顯示輪播
         });
     });
-
-
 	</script>
 
 	<script>
