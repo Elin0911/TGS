@@ -397,6 +397,7 @@
 
             <div class="carousel-container">
                 <div class="carousel-wrapper">
+					<div class="loading-message">載入中...</div> <!-- 載入中的訊息 -->
                     <!-- 圖片輪播 -->
                     <div class="carousel-slide"><img src="images/roundPIC/1.png" alt="活動圖片"></div>
                     <div class="carousel-slide"><img src="images/roundPIC/2.png" alt="活動圖片"></div>
@@ -675,39 +676,40 @@
 	<!-- 初始化 Slick 輪播的 JavaScript 代碼 -->
 	<script type="text/javascript">
     // 等待頁面所有資源加載完成後再執行輪播初始化
-    window.addEventListener('load', function() {
-        $('.carousel-wrapper').slick({
-            dots: true, // 顯示導航點
-            infinite: true, // 無限循環
-            speed: 500, // 切換速度
-            slidesToShow: 1, // 一次顯示一張圖片
-            slidesToScroll: 1, // 每次切換一張
-            autoplay: true, // 自動播放
-            autoplaySpeed: 3000, // 每張圖片顯示3秒
-            arrows: false, // 隱藏箭頭，避免佔用手機螢幕空間
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true
-                    }
-                }
-            ]
-        }).on('init', function(event, slick) {
-            // Slick 輪播初始化完成後顯示輪播容器
-            $('.carousel-wrapper').fadeIn(500); // 使用淡入效果顯示輪播
-        });
-    });
+    $(window).on('load', function() {
+		$('.carousel-wrapper').slick({
+			dots: true, // 顯示導航點
+			infinite: true, // 無限循環
+			speed: 500, // 切換速度
+			slidesToShow: 1, // 一次顯示一張圖片
+			slidesToScroll: 1, // 每次切換一張
+			autoplay: true, // 自動播放
+			autoplaySpeed: 3000, // 每張圖片顯示3秒
+			arrows: false, // 隱藏箭頭，避免佔用手機螢幕空間
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						dots: true
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						dots: true
+					}
+				}
+			]
+		}).on('init', function(event, slick) {
+			// Slick 輪播初始化完成後隱藏載入中的訊息
+			$('.loading-message').fadeOut(500); // 使用淡出效果隱藏載入中的訊息
+			$('.carousel-slide img').css('opacity', '1'); // 顯示所有輪播圖片，淡入效果由 CSS 控制
+		});
+	});
 	</script>
 
 	<script>
