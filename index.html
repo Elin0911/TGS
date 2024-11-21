@@ -476,10 +476,10 @@
 
 					<!-- 新增的價格容器 -->
 					<div class="price-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex-grow: 1;">
-						<p style="font-size: 1.8rem; font-weight: bold; margin: 0;">
+						<p style="font-size: 1.8rem; font-weight: bold; margin: 0; color:#d60c18;">
 							NT. 5,380<br>
 						</p>
-						<p style="font-size: 0.9rem; text-decoration: line-through; margin-top: 5px;">
+						<p style="font-size: 0.9rem; text-decoration: line-through; margin-top: 5px; color:#9f9c9c;">
 							（原價 7,690元）<br>
 						</p>
 					</div>
@@ -674,36 +674,37 @@
 
 	<!-- 初始化 Slick 輪播的 JavaScript 代碼 -->
 	<script type="text/javascript">
-	$(document).ready(function() {
-		$('.carousel-wrapper').slick({
-			dots: true, // 顯示導航點
-			infinite: true, // 無限循環
-			speed: 500, // 切換速度
-			slidesToShow: 1, // 一次顯示一張圖片
-			slidesToScroll: 1, // 每次切換一張
-			autoplay: true, // 自動播放
-			autoplaySpeed: 3000, // 每張圖片顯示3秒
-			arrows: false, // 隱藏箭頭，避免佔用手機螢幕空間
-			responsive: [
-				{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						dots: true
-					}
-				},
-				{
-					breakpoint: 768,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						dots: true
-					}
-				}
-			]
-		});
-	});
+    // 等待頁面所有資源加載完成後再執行輪播初始化
+    window.addEventListener('load', function() {
+        $('.carousel-wrapper').slick({
+            dots: true, // 顯示導航點
+            infinite: true, // 無限循環
+            speed: 500, // 切換速度
+            slidesToShow: 1, // 一次顯示一張圖片
+            slidesToScroll: 1, // 每次切換一張
+            autoplay: true, // 自動播放
+            autoplaySpeed: 3000, // 每張圖片顯示3秒
+            arrows: false, // 隱藏箭頭，避免佔用手機螢幕空間
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true
+                    }
+                }
+            ]
+        });
+    });
 
 
 	</script>
