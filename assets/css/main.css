@@ -530,8 +530,26 @@
 		width: 100%; /* 使輪播區塊充滿父容器 */
 		margin: 0 auto; /* 水平居中 */
 		padding: 0;
-		display: none; /* 初始隱藏輪播容器 */
+		position: relative; /* 為載入中的訊息提供絕對定位的基礎 */
 	}
+	
+	/* 載入中的訊息樣式 */
+    .loading-message {
+        position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1.5em;
+		color: #31A8A1;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.8); /* 半透明的背景色，讓用戶知道還在載入 */
+		padding: 20px;
+		border-radius: 10px;
+		z-index: 1; /* 確保載入中的訊息位於最上層 */
+    }
 
 	/* 平板樣式（1024px 及以下） */
 	@media (max-width: 1024px) {
@@ -552,10 +570,12 @@
 	/* 每張輪播圖片 */
 	.carousel-slide img {
 		width: 100%;
-		height: 100%;
+		height: auto;
 		object-fit: cover; /* 確保圖片能等比例填滿容器 */
 		border-radius: 10px; /* 圓角選擇性設置，如果需要去掉，設置為 0 */
 		display: block; /* 確保圖片是區塊級元素，以避免任何潛在的間距問題 */
+		opacity: 1; /* 預設圖片不可見，直到 Slick 完成初始化 */
+		transition: opacity 0.5s ease-in; /* 為圖片增加淡入效果 */
 	}
 	
 	/* 手機和平板設備的輪播調整 */
