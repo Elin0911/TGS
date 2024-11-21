@@ -137,7 +137,7 @@
 			color: white;
 			display: flex;
 			align-items: center;
-			padding: 5px 300px; /* 給導航列一定的內邊距 */
+			padding: 5px 250px; /* 給導航列一定的內邊距 */
 			z-index: 10; /* 確保導航列在最上層 */
 			justify-content: space-between; /* LOGO 和按鈕左右分佈，去除不必要的空白 */
 		}
@@ -530,6 +530,7 @@
 		width: 100%; /* 使輪播區塊充滿父容器 */
 		margin: 0 auto; /* 水平居中 */
 		padding: 0;
+		display: none; /* 初始隱藏輪播容器 */
 	}
 
 	/* 平板樣式（1024px 及以下） */
