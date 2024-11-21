@@ -465,7 +465,7 @@
 	.btn-black {			
 		background-color:#000000;
 		color: #FFFFFF;
-		border: 2px solid #0000001;
+		border: 2px solid #000000;
 		text-decoration: none;
 		border-radius: 25px;
 		transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
@@ -540,10 +540,10 @@
 		}
 	}
 
-	/* 手機樣式（768px 及以下） */
-	@media (max-width: 768px) {
+	/* 手機樣式（600px 及以下） */
+	@media (max-width: 600px) {
 		.carousel-wrapper {
-			max-width: 250px; /* 在手機上讓輪播區塊占滿整個螢幕寬度 */
+			max-width: 300px; /* 在手機上讓輪播區塊占滿整個螢幕寬度 */
 			padding: 0 5px; /* 縮小內邊距，避免圖片過於擁擠 */
 		}
 	}
