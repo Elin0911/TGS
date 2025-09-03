@@ -3706,3 +3706,41 @@ body::-webkit-scrollbar {
     max-width: 240px !important; /* fixed safe max size for mobile */
   }
 }
+
+
+/* === Hotfix v6: ensure overview card image keeps aspect ratio and never breaks layout === */
+.overview .image-row .card .image-container {
+  text-align: center;
+  padding: 12px 0;
+}
+.overview .image-row .card .image-container img {
+  width: auto !important;
+  max-width: 90% !important;   /* limit width inside card */
+  height: auto !important;
+  max-height: 320px !important; /* keep image from being too tall */
+  object-fit: contain !important;
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .overview .image-row .card .image-container img {
+    max-width: 240px !important;
+    max-height: 280px !important;
+  }
+}
+
+
+/* === Hotfix v7: overview card image must fit within card height (blue box), keep aspect ratio === */
+.overview .image-row .card .image-container {
+  text-align: center;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overview .image-row .card .image-container img {
+  max-width: 100% !important;
+  max-height: 100% !important;  /* don't exceed container height */
+  height: auto !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
