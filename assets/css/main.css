@@ -3988,3 +3988,28 @@ body::-webkit-scrollbar {
     line-height: 1.45 !important;
   }
 }
+
+
+/* === Hotfix v14: TGSrecords paragraph safe wrapping & spacing === */
+#TGSrecords .title .content-center {
+  overflow: visible !important;      /* avoid clipping */
+}
+#TGSrecords .title .content-center p {
+  max-width: 680px;                  /* keep line length readable */
+  margin: 0.2em auto 0.8em;          /* center horizontally */
+  padding: 0 8px;                    /* small side padding */
+  line-height: 1.8 !important;       /* comfortable leading */
+  letter-spacing: 0 !important;      /* disable global 2px spacing here */
+  word-break: keep-all !important;   /* avoid awkward CJK breaks */
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+  text-align: left;                   /* better reading for multi-line Chinese */
+}
+@media (max-width: 480px) {
+  #TGSrecords .title .content-center p {
+    font-size: 16.5px !important;
+    line-height: 1.8 !important;
+    max-width: 92%;
+    padding: 0 6px;
+  }
+}
