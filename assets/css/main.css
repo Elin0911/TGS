@@ -4013,3 +4013,34 @@ body::-webkit-scrollbar {
     padding: 0 6px;
   }
 }
+
+
+/* === Hotfix v15: iPhone wrap/spacing fix for TGSrecords paragraph === */
+/* Prevent iOS Safari auto text zoom from collapsing line-height */
+html, body { -webkit-text-size-adjust: 100%; }
+
+/* Stronger override for this specific paragraph */
+#TGSrecords .title .content-center {
+  align-items: flex-start; /* don't vertically center multiline text */
+}
+#TGSrecords .title .content-center p,
+#TGSrecords .title p {
+  letter-spacing: 0 !important;
+  line-height: 1.9 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+  padding: 0 10px !important;      /* override global 18% padding */
+  margin: 0.4em auto 0.8em !important;
+  max-width: 92% !important;
+  text-align: left;
+  font-size: 16.5px !important;
+}
+@media (max-width: 480px) {
+  #TGSrecords .title .content-center p,
+  #TGSrecords .title p {
+    font-size: 16px !important;
+    line-height: 1.95 !important;
+    max-width: 94% !important;
+  }
+}
