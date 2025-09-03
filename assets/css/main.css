@@ -3521,3 +3521,46 @@ body::-webkit-scrollbar {
     justify-content: center;
   }
 }
+
+
+/* === Hotfix v2: fix card bottom overflow/cut-off on mobile === */
+@media (max-width: 768px) {
+  .overview .image-row {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+  }
+  .overview .image-row .card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;         /* remove any fixed heights */
+    min-height: 0 !important;
+    box-sizing: border-box;
+    margin: 0 0 16px 0;
+    overflow: hidden;                 /* avoid children spilling out */
+  }
+  .overview .image-row .card * {
+    min-width: 0;                     /* prevent flex children overflow */
+  }
+  .overview .image-row .card .image-container {
+    width: 100%;
+  }
+  .overview .image-row .card .image-container img {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    object-fit: cover;
+  }
+  .overview .image-row .card .card-text {
+    flex: 1 1 auto;
+    margin: 12px 0;
+  }
+  .overview .image-row .card .card-button {
+    margin-top: auto;
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+  }
+}
