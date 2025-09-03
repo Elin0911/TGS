@@ -3744,3 +3744,224 @@ body::-webkit-scrollbar {
   width: auto !important;
   object-fit: contain !important;
 }
+
+
+/* === Typo Fix: prevent cramped line-wrap for big title in book section === */
+.book .title .content-center p {
+  line-height: 1.35 !important;   /* add comfortable line height */
+  letter-spacing: 0 !important;    /* avoid extra horizontal spacing */
+  margin: 0.2em 0 0.6em;
+}
+@media (max-width: 480px) {
+  .book .title .content-center p {
+    font-size: 26px !important;    /* scale down on very small screens */
+    line-height: 1.4 !important;
+  }
+}
+
+
+/* === Hotfix v8: unify overview card heights across row === */
+.overview .image-row {
+  display: flex;
+  align-items: stretch; /* make all children equal height */
+}
+.overview .image-row .card {
+  flex: 1 1 0;
+  min-height: 480px; /* base height to prevent short cards */
+  display: flex;
+  flex-direction: column;
+}
+.overview .image-row .card .card-text {
+  flex: 1 1 auto; /* allow text area to expand */
+}
+.overview .image-row .card .card-button {
+  margin-top: auto; /* push button to bottom */
+}
+
+
+/* === Hotfix v9: responsive unified card heights === */
+@media (max-width: 480px) {
+  .overview .image-row .card {
+    min-height: 400px;
+  }
+}
+@media (min-width: 481px) and (max-width: 991px) {
+  .overview .image-row .card {
+    min-height: 460px;
+  }
+}
+@media (min-width: 992px) {
+  .overview .image-row .card {
+    min-height: 520px;
+  }
+}
+
+
+/* === Hotfix v10: fix first card misaligned (iPad Mini) === */
+.overview .image-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.overview .image-row .card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px; /* unified height */
+  box-sizing: border-box;
+}
+.overview .image-row .card .image-container {
+  flex: 0 0 auto;
+}
+.overview .image-row .card .card-text {
+  flex: 1 1 auto;
+}
+.overview .image-row .card .card-button {
+  flex: 0 0 auto;
+  margin-top: auto;
+}
+
+
+/* === Hotfix v10: overview tablet layout alignment & spacing === */
+@media (min-width: 740px) and (max-width: 1024px) {
+  .overview .image-row {
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: center;
+    gap: 16px;                  /* unified spacing between cards */
+  }
+  .overview .image-row .card {
+    flex: 1 1 0;
+    margin: 0 !important;       /* remove bottom margin causing cyan strip */
+    min-height: 500px;          /* balanced height on tablet */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .overview .image-row .card .card-text {
+    flex: 1 1 auto;
+  }
+  .overview .image-row .card .card-button {
+    margin-top: auto;           /* stick to bottom */
+  }
+}
+
+
+/* === Final Polish: overview row matches reference mock === */
+.overview .image-row {
+  gap: 24px; /* consistent spacing between cards */
+}
+.overview .image-row .card {
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.overview .image-row .card .image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0 10px;
+  min-height: 180px; /* image box height keeps cards aligned */
+}
+.overview .image-row .card .image-container img {
+  max-width: 90%;
+  max-height: 160px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.overview .image-row .card .card-text {
+  flex: 1 1 auto;
+}
+.overview .image-row .card .card-button {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+.overview .image-row .card .card-button > a > button {
+  width: 200px;     /* consistent button size */
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+/* Tablet refinement */
+@media (min-width: 740px) and (max-width: 1199px) {
+  .overview .image-row .card {
+    min-height: 520px;
+  }
+  .overview .image-row .card .image-container {
+    min-height: 200px;
+  }
+  .overview .image-row .card .image-container img {
+    max-height: 180px;
+  }
+}
+
+/* Desktop refinement */
+@media (min-width: 1200px) {
+  .overview .image-row .card {
+    min-height: 540px;
+  }
+  .overview .image-row .card .image-container {
+    min-height: 220px;
+  }
+  .overview .image-row .card .image-container img {
+    max-height: 200px;
+  }
+}
+
+
+/* === Hotfix v11: Relate & FAQ card blocks fit device width === */
+@media (max-width: 1024px) {
+  /* 1) 容器不再左右過寬留白，靠近滿版 */
+  .relate .container,
+  .faq .container {
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* 2) 卡片排列：單欄滿寬，間距適中 */
+  .relate .card-block,
+  .faq .card-block {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-gap: 16px !important;
+  }
+
+  /* 3) 卡片本體也強制吃滿寬度，避免自身寬度或外距造成縮窄 */
+  .relate .card-block .card,
+  .faq .card-block .card {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+
+/* === Hotfix v12: Desktop - card bottom buttons fill card width === */
+@media (min-width: 1024px) {
+  .overview .image-row .card .card-button {
+    display: flex;
+    justify-content: center;
+    padding: 0 8px; /* small side padding so button doesn't touch rounded edges */
+  }
+  .overview .image-row .card .card-button > a {
+    display: block;
+    width: 100% !important;
+  }
+  .overview .image-row .card .card-button > a > button,
+  .overview .image-row .card .card-button > .btn {
+    width: 100% !important;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px 0;
+  }
+}
+
+/* Override previous fixed width setting */
+.overview .image-row .card .card-button > a > button {
+  width: 100% !important;
+}
