@@ -3398,4 +3398,94 @@ body::-webkit-scrollbar {
           transform: translate(-50%, -50%);
 }
 
+/* ===== RWD Overrides Appended ===== */
+/* =====================================================
+   RWD Overrides (main_rwd.css)
+   說明：此檔只做「自適應優化」，不更動原有內容與結構。
+   使用方式：請在原本的 main.css 之後再引入本檔，避免覆蓋舊設定。
+   例：<link rel="stylesheet" href="assets/css/main.css">
+       <link rel="stylesheet" href="assets/css/main_rwd.css">
+   ===================================================== */
 
+/* 1) Header Logo 與文案在手機的排版優化 */
+@media (max-width: 768px) {
+  .logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .logo-container img {
+    max-width: 60px;
+    width: 100%;
+    height: auto;
+  }
+  .mb_only .words,
+  .mb_only .logo-container {
+    margin-left: 0;
+  }
+}
+
+/* 2) Hero 圖片在平板高度與裁切 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .speaker-img {
+    max-height: 80vh;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+/* 3) Section padding 與標題/段落在小螢幕的可讀性 */
+@media (max-width: 480px) {
+  section {
+    padding: 2em 0;
+  }
+  section .title h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  section .title p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+/* 4) overview 區塊卡片在小螢幕改為直式堆疊 */
+@media (max-width: 768px) {
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-row .card {
+    max-width: 90%;
+  }
+}
+
+/* 5) 全站段落與清單在小螢幕的字級統一與行高優化 */
+@media (max-width: 660px) {
+  p,
+  li {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+/* 6) 補強：主視覺文案區塊在極小螢幕的間距（避免擠壓） */
+@media (max-width: 390px) {
+  .main__header .container .main__intro {
+    padding: 0 16px;
+  }
+  .main__header .logo {
+    margin-top: 8px;
+    margin-bottom: 40px;
+  }
+}
+
+/* 7) 補強：平板寬度時，圖片容易超寬的情形（保底） */
+@media (max-width: 992px) {
+  .main__header .speaker .img-fluid {
+    max-width: 100%;
+    margin: 0;
+  }
+}
