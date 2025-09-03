@@ -3688,3 +3688,21 @@ body::-webkit-scrollbar {
     max-width: 260px !important; /* keep image readable on small screens */
   }
 }
+
+
+/* === Hotfix v5: prevent overview card images from breaking layout === */
+.overview .image-row .card .image-container {
+  text-align: center;
+}
+.overview .image-row .card .image-container img {
+  max-width: 90% !important;   /* limit image width relative to card */
+  height: auto !important;
+  object-fit: contain !important;
+  display: inline-block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .overview .image-row .card .image-container img {
+    max-width: 240px !important; /* fixed safe max size for mobile */
+  }
+}
