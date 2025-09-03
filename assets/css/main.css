@@ -3639,3 +3639,34 @@ body::-webkit-scrollbar {
     max-width: 100%;
   }
 }
+
+
+/* === Hotfix v3: Ensure overview card top image is fully visible === */
+.overview .image-row .card .image-container {
+  overflow: visible !important;    /* do not clip image */
+  max-height: none !important;     /* remove any implicit max-height */
+}
+
+.overview .image-row .card .image-container img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;  /* show full image without crop */
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* === Hotfix v3: overview card image should display fully (no crop) === */
+.overview .image-row .card .image-container {
+  padding-top: 12px;      /* extra spacing under the title bar */
+  overflow: visible;      /* do not clip the image */
+}
+.overview .image-row .card .image-container img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;  /* show full image */
+  display: block;
+  margin: 0 auto;
+}
