@@ -3489,3 +3489,35 @@ body::-webkit-scrollbar {
     margin: 0;
   }
 }
+
+
+/* === Hotfix: overview cards mobile stacking & full-width === */
+@media (max-width: 768px) {
+  /* Override inline display:flex from HTML with !important */
+  .overview .image-row {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+  }
+  .overview .image-row .card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin: 0 auto 16px auto; /* spacing between cards */
+  }
+  .overview .image-row .card:last-child {
+    margin-bottom: 0;
+  }
+  /* Ensure inner image scales nicely */
+  .overview .image-row .card .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  /* Buttons centered on mobile */
+  .overview .image-row .card .card-button {
+    display: flex;
+    justify-content: center;
+  }
+}
