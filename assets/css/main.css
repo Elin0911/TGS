@@ -3670,3 +3670,21 @@ body::-webkit-scrollbar {
   display: block;
   margin: 0 auto;
 }
+
+
+/* === Hotfix v4: Force proportional scaling for overview card images === */
+.overview .image-row .card .image-container {
+  text-align: center;
+  padding: 12px 0;
+}
+.overview .image-row .card .image-container img {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: scale-down !important;  /* ensure whole image fits inside box */
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .overview .image-row .card .image-container img {
+    max-width: 260px !important; /* keep image readable on small screens */
+  }
+}
