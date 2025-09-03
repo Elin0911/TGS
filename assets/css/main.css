@@ -3965,3 +3965,26 @@ body::-webkit-scrollbar {
 .overview .image-row .card .card-button > a > button {
   width: 100% !important;
 }
+
+
+/* === Hotfix v13: prevent cramped wrap for the big book title on small screens === */
+.book .title .content-center p {
+  line-height: 1.35 !important;     /* comfortable leading */
+  letter-spacing: 0 !important;      /* override global 2px letter-spacing */
+  white-space: normal !important;    /* allow natural wrapping */
+  word-break: keep-all !important;   /* avoid awkward CJK breaks */
+  margin: 0.2em 0 0.6em;
+}
+.book .title .content-center p b {
+  display: inline-block;             /* ensure line-height applies cleanly */
+  line-height: 1.35 !important;
+}
+@media (max-width: 480px) {
+  .book .title .content-center p {
+    font-size: 26px !important;      /* scale down for iPhone SE width */
+    line-height: 1.45 !important;
+  }
+  .book .title .content-center p b {
+    line-height: 1.45 !important;
+  }
+}
